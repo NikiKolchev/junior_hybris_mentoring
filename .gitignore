@@ -7,61 +7,41 @@
 *.war
 *.ear
 
+# Eclipse files and directories
+.cproject
+.project
+.settings
+.classpath
+.pmd
+.ruleset
+.springBeans
+
+
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
 # for hybris
-/hybrisExtensions/telcotrail/telcotrailcore/extensioninfo.xsd
-/hybrisExtensions/telcotrail/telcotrailcore/eclipsebin
-/hybrisExtensions/telcotrail/telcotrailcore/classes
-/hybrisExtensions/telcotrail/telcotrailcore/gensrc
-/hybrisExtensions/telcotrail/telcotrailcore/build.xml
-/hybrisExtensions/telcotrail/telcotrailcore/resources/beans.xsd
-/hybrisExtensions/telcotrail/telcotrailcore/resources/items.xsd
-/hybrisExtensions/telcotrail/telcotrailcore/resources/telcotrailcore/telcotrailcore-webtestclasses.xml
-/hybrisExtensions/telcotrail/telcotrailcore/resources/telcotrailcore/telcotrailcore-testclasses.xml
-/hybrisExtensions/telcotrail/telcotrailcore/fileAbsolutePath
+extensioninfo.xsd
+build.xml
+beans.xsd
+items.xsd
 
-/hybrisExtensions/telcotrail/telcotrailcockpits/extensioninfo.xsd
-/hybrisExtensions/telcotrail/telcotrailcockpits/eclipsebin
-/hybrisExtensions/telcotrail/telcotrailcockpits/classes
-/hybrisExtensions/telcotrail/telcotrailcockpits/gensrc
-/hybrisExtensions/telcotrail/telcotrailcockpits/build.xml
-/hybrisExtensions/telcotrail/telcotrailcockpits/resources/beans.xsd
-/hybrisExtensions/telcotrail/telcotrailcockpits/resources/items.xsd
-/hybrisExtensions/telcotrail/telcotrailcockpits/resources/telcotrailcockpits/telcotrailcockpits-webtestclasses.xml
-/hybrisExtensions/telcotrail/telcotrailcockpits/resources/telcotrailcockpits/telcotrailcockpits-testclasses.xml
-/hybrisExtensions/telcotrail/telcotrailcockpits/fileAbsolutePath
+eclipsebin/*
+classes/*
+gensrc/*
 
-/hybrisExtensions/telcotrail/telcotrailfacades/extensioninfo.xsd
-/hybrisExtensions/telcotrail/telcotrailfacades/eclipsebin
-/hybrisExtensions/telcotrail/telcotrailfacades/classes
-/hybrisExtensions/telcotrail/telcotrailfacades/gensrc
-/hybrisExtensions/telcotrail/telcotrailfacades/build.xml
-/hybrisExtensions/telcotrail/telcotrailfacades/resources/beans.xsd
-/hybrisExtensions/telcotrail/telcotrailfacades/resources/items.xsd
-/hybrisExtensions/telcotrail/telcotrailfacades/resources/telcotrailfacades/telcotrailfacades-webtestclasses.xml
-/hybrisExtensions/telcotrail/telcotrailfacades/resources/telcotrailfacades/telcotrailfacades-testclasses.xml
-/hybrisExtensions/telcotrail/telcotrailfacades/fileAbsolutePath
+telcotrailcore-webtestclasses.xml
+telcotrailcore-testclasses.xml
 
-/hybrisExtensions/telcotrail/telcotrailinitialdata/extensioninfo.xsd
-/hybrisExtensions/telcotrail/telcotrailinitialdata/eclipsebin
-/hybrisExtensions/telcotrail/telcotrailinitialdata/classes
-/hybrisExtensions/telcotrail/telcotrailinitialdata/gensrc
-/hybrisExtensions/telcotrail/telcotrailinitialdata/build.xml
-/hybrisExtensions/telcotrail/telcotrailinitialdata/resources/beans.xsd
-/hybrisExtensions/telcotrail/telcotrailinitialdata/resources/items.xsd
-/hybrisExtensions/telcotrail/telcotrailinitialdata/resources/telcotrailinitialdata/telcotrailinitialdata-webtestclasses.xml
-/hybrisExtensions/telcotrail/telcotrailinitialdata/resources/telcotrailinitialdata/telcotrailinitialdata-testclasses.xml
-/hybrisExtensions/telcotrail/telcotrailinitialdata/fileAbsolutePath
+telcotrailcockpits-webtestclasses.xml
+telcotrailcockpits-testclasses.xml
 
-/hybrisExtensions/telcotrail/telcotrailstorefront/extensioninfo.xsd
-/hybrisExtensions/telcotrail/telcotrailstorefront/eclipsebin
-/hybrisExtensions/telcotrail/telcotrailstorefront/classes
-/hybrisExtensions/telcotrail/telcotrailstorefront/web/testclasses
-/hybrisExtensions/telcotrail/telcotrailstorefront/build.xml
-/hybrisExtensions/telcotrail/telcotrailstorefront/resources/beans.xsd
-/hybrisExtensions/telcotrail/telcotrailstorefront/resources/items.xsd
-/hybrisExtensions/telcotrail/telcotrailstorefront/resources/telcotrailstorefront/telcotrailstorefront-webtestclasses.xml
-/hybrisExtensions/telcotrail/telcotrailstorefront/resources/telcotrailstorefront/telcotrailstorefront-testclasses.xml
-/hybrisExtensions/telcotrail/telcotrailstorefront/fileAbsolutePath
+telcotrailfacades-webtestclasses.xml
+telcotrailfacades-testclasses.xml
+
+telcotrailinitialdata-webtestclasses.xml
+telcotrailinitialdata-testclasses.xml
+
+telcotrailstorefront-webtestclasses.xml
+telcotrailstorefront-testclasses.xml
+
