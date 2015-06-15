@@ -85,6 +85,9 @@
 		<extension name="telcotrailfacades"/>
 		<extension name="telcotrailstorefront"/>
 		<extension name="telcotrailcockpits"/>
+		
+		<!-- custom extensions -->
+		<extension name="training"/>
 
         <!-- ems web application -->
         <webapp contextroot="entitlements-web" path="${HYBRIS_BIN_DIR}/../../hybris-ems/binary/entitlements-web.war" />
