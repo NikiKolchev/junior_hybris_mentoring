@@ -8,9 +8,10 @@
 *.ear
 
 # Eclipse files and directories
+.externalToolBuilders
+.settings
 .cproject
 .project
-.settings
 .classpath
 .pmd
 .ruleset
@@ -45,3 +46,10 @@ telcotrailinitialdata-testclasses.xml
 telcotrailstorefront-webtestclasses.xml
 telcotrailstorefront-testclasses.xml
 
+training-webtestclasses.xml
+training-testclasses.xml
+
+traininghmc-webtestclasses.xml
+traininghmc-testclasses.xml
+
+dummy.txt

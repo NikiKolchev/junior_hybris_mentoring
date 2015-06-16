@@ -1,22 +1,12 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-
 <items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="items.xsd">
 
 	<relations>
-		<!-- <relation code="Customer2Organization" generate="true" autocreate="true" 
-			localized="false"> <sourceElement qualifier="customers" type="Customer" cardinality="many"> 
-			<modifiers read="true" write="true" search="true" optional="false" /> </sourceElement> 
-			<targetElement qualifier="organizations" type="Organization" cardinality="many"> 
-			<modifiers read="true" write="true" search="true" optional="false" /> </targetElement> 
-			</relation> -->
-		<relation code="Customer2Organization" localized="false"
-			autocreate="true" generate="true">
+		<relation code="Customer2Organization" localized="false" autocreate="true" generate="true">
 			<deployment table="customer2organisationrel" typecode="15001" />
-			<sourceElement qualifier="customers" type="Customer"
-				cardinality="many" />
-			<targetElement qualifier="organizations" type="Organization"
-				cardinality="many" />
+			<sourceElement qualifier="customers" type="Customer" cardinality="many" />
+			<targetElement qualifier="organizations" type="Organization" cardinality="many" />
 		</relation>
 	</relations>
 
@@ -42,8 +32,7 @@
 				<attribute qualifier="id" type="java.lang.Integer">
 					<description>Id(not a PK)</description>
 					<persistence type="property" />
-					<modifiers read="true" write="true" search="true"
-						optional="false" />
+					<modifiers read="true" write="true" search="true" optional="false" />
 				</attribute>
 
 				<attribute qualifier="name" type="java.lang.String">
