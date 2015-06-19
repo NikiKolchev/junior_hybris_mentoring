@@ -45,7 +45,7 @@
 						optional="false" unique="true" />
 				</attribute>
 
-				<attribute qualifier="name" type="localized:java.lang.String"
+				<attribute qualifier="name" type="java.lang.String"
 					generate="true">
 					<description>Organisation's name.</description>
 					<persistence type="property" />

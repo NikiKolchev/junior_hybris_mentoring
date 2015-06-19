@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Jun 18, 2015 8:57:19 PM                     ---
+ * --- Generated at Jun 19, 2015 2:50:25 PM                     ---
  * ----------------------------------------------------------------
  */
 package com.epam.training.jalo;
@@ -9,10 +9,7 @@ package com.epam.training.jalo;
 import com.epam.training.constants.TrainingConstants;
 import de.hybris.platform.jalo.GenericItem;
 import de.hybris.platform.jalo.Item.AttributeMode;
-import de.hybris.platform.jalo.JaloInvalidParameterException;
 import de.hybris.platform.jalo.SessionContext;
-import de.hybris.platform.jalo.c2l.C2LManager;
-import de.hybris.platform.jalo.c2l.Language;
 import de.hybris.platform.jalo.user.Customer;
 import de.hybris.platform.util.Utilities;
 import java.util.Collection;
@@ -295,11 +292,7 @@ public abstract class GeneratedOrganization extends GenericItem
 	 */
 	public String getName(final SessionContext ctx)
 	{
-		if( ctx == null || ctx.getLanguage() == null )
-		{
-			throw new JaloInvalidParameterException("GeneratedOrganization.getName requires a session language", 0 );
-		}
-		return (String)getLocalizedProperty( ctx, NAME);
+		return (String)getProperty( ctx, NAME);
 	}
 	
 	/**
@@ -312,34 +305,12 @@ public abstract class GeneratedOrganization extends GenericItem
 	}
 	
 	/**
-	 * <i>Generated method</i> - Getter of the <code>Organization.name</code> attribute. 
-	 * @return the localized name - Organisation's name.
-	 */
-	public Map<Language,String> getAllName(final SessionContext ctx)
-	{
-		return (Map<Language,String>)getAllLocalizedProperties(ctx,NAME,C2LManager.getInstance().getAllLanguages());
-	}
-	
-	/**
-	 * <i>Generated method</i> - Getter of the <code>Organization.name</code> attribute. 
-	 * @return the localized name - Organisation's name.
-	 */
-	public Map<Language,String> getAllName()
-	{
-		return getAllName( getSession().getSessionContext() );
-	}
-	
-	/**
 	 * <i>Generated method</i> - Setter of the <code>Organization.name</code> attribute. 
 	 * @param value the name - Organisation's name.
 	 */
 	public void setName(final SessionContext ctx, final String value)
 	{
-		if( ctx == null || ctx.getLanguage() == null )
-		{
-			throw new JaloInvalidParameterException("GeneratedOrganization.setName requires a session language", 0 );
-		}
-		setLocalizedProperty(ctx, NAME,value);
+		setProperty(ctx, NAME,value);
 	}
 	
 	/**
@@ -349,24 +320,6 @@ public abstract class GeneratedOrganization extends GenericItem
 	public void setName(final String value)
 	{
 		setName( getSession().getSessionContext(), value );
-	}
-	
-	/**
-	 * <i>Generated method</i> - Setter of the <code>Organization.name</code> attribute. 
-	 * @param value the name - Organisation's name.
-	 */
-	public void setAllName(final SessionContext ctx, final Map<Language,String> value)
-	{
-		setAllLocalizedProperties(ctx,NAME,value);
-	}
-	
-	/**
-	 * <i>Generated method</i> - Setter of the <code>Organization.name</code> attribute. 
-	 * @param value the name - Organisation's name.
-	 */
-	public void setAllName(final Map<Language,String> value)
-	{
-		setAllName( getSession().getSessionContext(), value );
 	}
 	
 	/**

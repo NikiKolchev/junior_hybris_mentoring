@@ -49,7 +49,7 @@
 	<!-- <import resource="customcore-spring-integration-telco.xml" /> -->
 	<import resource="classpath*:hot-folder-spring.xml" />
 
-	<bean id="customerConverterMapping"
+<bean id="customerConverterMapping"
 		class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.mapping.impl.DefaultConverterMapping"
 		p:mapping="customer" p:converter-ref="batchCustomerConverter" />
 
@@ -57,23 +57,13 @@
 		class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.impl.DefaultImpexConverter">
 		<property name="header">
 			<value>
-				<!-- $passwordEncoding=md5 $defaultPassword=password $defaultName=customerName 
-					$defaultAttemptCount=0 $defaultStatus=false $setName=name[cellDecorator=de.hybris.platform.acceleratorservices.dataimport.batch.decorator.CustomerNameDecorator] 
-					INSERT_UPDATE Customer;uid[unique=true]; name[default=$defaultAttemptCount]; 
-					customerID[uniqe=true]; status[default=$defaultStatus]; attemptCount[default=$defaultAttemptCount]; 
-					organisations(name)[mode=replace] -->
-				INSERT_UPDATE Customer; uid[unique=true];
-				name
-				customerID[uniqe=true];
-				status;
-				attemptCount;
-				organizations(name) ;
+				INSERT_UPDATE Customer;uid[unique=true];name;customerID[uniqe=true];status;attemptCount;organizations(name)[collection-delimiter=|]
 			</value>
 		</property>
 		<property name="impexRow">
 			<value>;{+0};{1};{2};{3};{4};{5}</value>
 		</property>
-	</bean>
+	</bean> 
 
 	<bean id="organisationConverterMapping"
 		class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.mapping.impl.DefaultConverterMapping"
@@ -83,8 +73,7 @@
 		class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.impl.DefaultImpexConverter">
 		<property name="header">
 			<value>
-				INSERT_UPDATE Organization; id[unique=true]; name; phone; email <!-- customers(customerID)[collection-delimiter= 
-					|]; -->
+				INSERT_UPDATE Organization;id[unique=true];name;phone;email;customers(name)[collection-delimiter=|]
 			</value>
 		</property>
 		<property name="impexRow">

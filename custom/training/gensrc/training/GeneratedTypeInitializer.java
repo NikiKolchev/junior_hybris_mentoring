@@ -171,7 +171,7 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 					"Organization", 
 					"name",  
 					null,
-					"localized:java.lang.String",
+					"java.lang.String",
 					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
 					null,
 					sqlColumnDefinitions
