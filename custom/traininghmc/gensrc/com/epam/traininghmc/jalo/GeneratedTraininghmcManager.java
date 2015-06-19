@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Jun 16, 2015 1:16:26 PM                     ---
+ * --- Generated at Jun 18, 2015 8:57:19 PM                     ---
  * ----------------------------------------------------------------
  */
 package com.epam.traininghmc.jalo;

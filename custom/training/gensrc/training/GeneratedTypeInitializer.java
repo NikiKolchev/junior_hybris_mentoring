@@ -121,7 +121,7 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 					"status",  
 					null,
 					"java.lang.Boolean",
-					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
 					null,
 					sqlColumnDefinitions
 				);
@@ -138,7 +138,7 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 					"attemptCount",  
 					null,
 					"java.lang.Integer",
-					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.OPTIONAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
 					null,
 					sqlColumnDefinitions
 				);
@@ -171,8 +171,8 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 					"Organization", 
 					"name",  
 					null,
-					"java.lang.String",
-					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.INITIAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					"localized:java.lang.String",
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
 					null,
 					sqlColumnDefinitions
 				);
@@ -189,7 +189,7 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 					"phone",  
 					null,
 					"java.lang.String",
-					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.INITIAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
 					null,
 					sqlColumnDefinitions
 				);
@@ -206,7 +206,7 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 					"email",  
 					null,
 					"java.lang.String",
-					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.INITIAL_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
+					de.hybris.platform.jalo.type.AttributeDescriptor.READ_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.WRITE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.REMOVE_FLAG|de.hybris.platform.jalo.type.AttributeDescriptor.SEARCH_FLAG,
 					null,
 					sqlColumnDefinitions
 				);
@@ -293,8 +293,8 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 								"Customer", 
 								"status",
 								false, 
-								null,
-								null,
+								false,
+								"false",
 								null,
 								true,
 								true,
@@ -315,8 +315,8 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 								"Customer", 
 								"attemptCount",
 								false, 
-								null,
-								null,
+								0,
+								"0",
 								null,
 								true,
 								true,
@@ -336,7 +336,7 @@ public class GeneratedTypeInitializer extends AbstractTypeInitializer
 							setAttributeProperties(
 								"Organization", 
 								"id",
-								false, 
+								true, 
 								null,
 								null,
 								null,

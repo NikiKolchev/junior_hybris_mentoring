@@ -22,7 +22,8 @@
     <context:annotation-config />
 
 	<!-- Spring Integration -->
-	<import resource="telcotrailcore-spring-integration-telco.xml"/>
+	<import resource="classpath:/telcotrailcore-spring-integration-telco.xml"/>
+	<!--  <import resource="classpath:/telcotrailcore/integration/hot-folder-telcotrailcore-spring.xml"/>-->
 	
 	<!-- SystemSetup for the TelcotrailCore -->
 	<bean id="telcoAcceleratorCoreSystemSetup" class="de.hybris.telcotrail.core.setup.CoreSystemSetup"

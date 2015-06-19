@@ -1,49 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
- [y] hybris Platform
-
- Copyright (c) 2000-2015 hybris AG
- All rights reserved.
-
- This software is the confidential and proprietary information of hybris
- ("Confidential Information"). You shall not disclose such Confidential
- Information and shall use it only in accordance with the terms of the
- license agreement you entered into with hybris.
--->
+<!-- [y] hybris Platform Copyright (c) 2000-2015 hybris AG All rights reserved. 
+	This software is the confidential and proprietary information of hybris ("Confidential 
+	Information"). You shall not disclose such Confidential Information and shall 
+	use it only in accordance with the terms of the license agreement you entered 
+	into with hybris. -->
 
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:int="http://www.springframework.org/schema/integration"
-       xmlns:file="http://www.springframework.org/schema/integration/file"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/integration
            http://www.springframework.org/schema/integration/spring-integration.xsd
            http://www.springframework.org/schema/integration/file
            http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
 		   http://www.springframework.org/schema/context
-           http://www.springframework.org/schema/context/spring-context.xsd">
+           http://www.springframework.org/schema/context/spring-context.xsd"
+	xmlns:p="http://www.springframework.org/schema/p">
 
-    <context:annotation-config />
+	<context:annotation-config />
 
 	<bean id="baseDirectoryTelco" class="java.lang.String">
 		<constructor-arg value="#{baseDirectory}/telco" />
 	</bean>
 	<!-- 1) Scan for files -->
-	<file:inbound-channel-adapter id="batchFilesTelco" directory="#{baseDirectoryTelco}"
-		filename-regex="^(.*)-(\d+)\.csv" comparator="fileOrderComparator">
-		<int:poller fixed-rate="1000" />
+	<file:inbound-channel-adapter id="batchFilesTelco"
+		directory="#{baseDirectoryTelco}" filename-regex="^(.*)-(\d+)\.csv"
+		comparator="fileOrderComparator">
+		<int:poller fixed-rate="2000" />
 	</file:inbound-channel-adapter>
 
 	<!-- 2) move the file to processing and setup header -->
-	<file:outbound-gateway request-channel="batchFilesTelco" reply-channel="batchFilesTelcoProc"
-		directory="#{baseDirectoryTelco}/processing" delete-source-files="true" />
-	<int:service-activator input-channel="batchFilesTelcoProc" output-channel="batchFilesHeaderInit"
-		ref="telcoHeaderSetupTask" method="execute" />
-	<bean id="telcoHeaderSetupTask" class="de.hybris.platform.acceleratorservices.dataimport.batch.task.HeaderSetupTask">
+	<file:outbound-gateway request-channel="batchFilesTelco"
+		reply-channel="batchFilesTelcoProc" directory="#{baseDirectoryTelco}/processing"
+		delete-source-files="true" />
+	<int:service-activator input-channel="batchFilesTelcoProc"
+		output-channel="batchFilesHeaderInit" ref="telcoHeaderSetupTask"
+		method="execute" />
+	<bean id="telcoHeaderSetupTask"
+		class="de.hybris.platform.acceleratorservices.dataimport.batch.task.HeaderSetupTask">
 		<property name="catalog" value="telcoProductCatalog" />
 		<property name="net" value="false" />
 		<property name="storeBaseDirectory" ref="baseDirectoryTelco" />
+	</bean>
+
+	<!-- Import configuration -->
+	<!-- <import resource="customcore-spring-integration-telco.xml" /> -->
+	<import resource="classpath*:hot-folder-spring.xml" />
+
+	<bean id="customerConverterMapping"
+		class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.mapping.impl.DefaultConverterMapping"
+		p:mapping="customer" p:converter-ref="batchCustomerConverter" />
+
+	<bean id="batchCustomerConverter"
+		class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.impl.DefaultImpexConverter">
+		<property name="header">
+			<value>
+				<!-- $passwordEncoding=md5 $defaultPassword=password $defaultName=customerName 
+					$defaultAttemptCount=0 $defaultStatus=false $setName=name[cellDecorator=de.hybris.platform.acceleratorservices.dataimport.batch.decorator.CustomerNameDecorator] 
+					INSERT_UPDATE Customer;uid[unique=true]; name[default=$defaultAttemptCount]; 
+					customerID[uniqe=true]; status[default=$defaultStatus]; attemptCount[default=$defaultAttemptCount]; 
+					organisations(name)[mode=replace] -->
+				INSERT_UPDATE Customer; uid[unique=true];
+				name
+				customerID[uniqe=true];
+				status;
+				attemptCount;
+				organizations(name) ;
+			</value>
+		</property>
+		<property name="impexRow">
+			<value>;{+0};{1};{2};{3};{4};{5}</value>
+		</property>
+	</bean>
+
+	<bean id="organisationConverterMapping"
+		class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.mapping.impl.DefaultConverterMapping"
+		p:mapping="organization" p:converter-ref="batchOrganisationConverter" />
+
+	<bean id="batchOrganisationConverter"
+		class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.impl.DefaultImpexConverter">
+		<property name="header">
+			<value>
+				INSERT_UPDATE Organization; id[unique=true]; name; phone; email <!-- customers(customerID)[collection-delimiter= 
+					|]; -->
+			</value>
+		</property>
+		<property name="impexRow">
+			<value>;{+0};{1};{2};{3};{4}</value>
+		</property>
 	</bean>
 </beans>

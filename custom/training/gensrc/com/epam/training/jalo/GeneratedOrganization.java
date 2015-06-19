@@ -1,7 +1,7 @@
 /*
  * ----------------------------------------------------------------
  * --- WARNING: THIS FILE IS GENERATED AND WILL BE OVERWRITTEN! ---
- * --- Generated at Jun 16, 2015 1:16:26 PM                     ---
+ * --- Generated at Jun 18, 2015 8:57:19 PM                     ---
  * ----------------------------------------------------------------
  */
 package com.epam.training.jalo;
@@ -9,7 +9,10 @@ package com.epam.training.jalo;
 import com.epam.training.constants.TrainingConstants;
 import de.hybris.platform.jalo.GenericItem;
 import de.hybris.platform.jalo.Item.AttributeMode;
+import de.hybris.platform.jalo.JaloInvalidParameterException;
 import de.hybris.platform.jalo.SessionContext;
+import de.hybris.platform.jalo.c2l.C2LManager;
+import de.hybris.platform.jalo.c2l.Language;
 import de.hybris.platform.jalo.user.Customer;
 import de.hybris.platform.util.Utilities;
 import java.util.Collection;
@@ -179,7 +182,7 @@ public abstract class GeneratedOrganization extends GenericItem
 	
 	/**
 	 * <i>Generated method</i> - Getter of the <code>Organization.email</code> attribute.
-	 * @return the email
+	 * @return the email - Organisation's email.
 	 */
 	public String getEmail(final SessionContext ctx)
 	{
@@ -188,7 +191,7 @@ public abstract class GeneratedOrganization extends GenericItem
 	
 	/**
 	 * <i>Generated method</i> - Getter of the <code>Organization.email</code> attribute.
-	 * @return the email
+	 * @return the email - Organisation's email.
 	 */
 	public String getEmail()
 	{
@@ -197,7 +200,7 @@ public abstract class GeneratedOrganization extends GenericItem
 	
 	/**
 	 * <i>Generated method</i> - Setter of the <code>Organization.email</code> attribute. 
-	 * @param value the email
+	 * @param value the email - Organisation's email.
 	 */
 	public void setEmail(final SessionContext ctx, final String value)
 	{
@@ -206,7 +209,7 @@ public abstract class GeneratedOrganization extends GenericItem
 	
 	/**
 	 * <i>Generated method</i> - Setter of the <code>Organization.email</code> attribute. 
-	 * @param value the email
+	 * @param value the email - Organisation's email.
 	 */
 	public void setEmail(final String value)
 	{
@@ -288,16 +291,20 @@ public abstract class GeneratedOrganization extends GenericItem
 	
 	/**
 	 * <i>Generated method</i> - Getter of the <code>Organization.name</code> attribute.
-	 * @return the name - Contains localized values
+	 * @return the name - Organisation's name.
 	 */
 	public String getName(final SessionContext ctx)
 	{
-		return (String)getProperty( ctx, NAME);
+		if( ctx == null || ctx.getLanguage() == null )
+		{
+			throw new JaloInvalidParameterException("GeneratedOrganization.getName requires a session language", 0 );
+		}
+		return (String)getLocalizedProperty( ctx, NAME);
 	}
 	
 	/**
 	 * <i>Generated method</i> - Getter of the <code>Organization.name</code> attribute.
-	 * @return the name - Contains localized values
+	 * @return the name - Organisation's name.
 	 */
 	public String getName()
 	{
@@ -305,17 +312,39 @@ public abstract class GeneratedOrganization extends GenericItem
 	}
 	
 	/**
-	 * <i>Generated method</i> - Setter of the <code>Organization.name</code> attribute. 
-	 * @param value the name - Contains localized values
+	 * <i>Generated method</i> - Getter of the <code>Organization.name</code> attribute. 
+	 * @return the localized name - Organisation's name.
 	 */
-	public void setName(final SessionContext ctx, final String value)
+	public Map<Language,String> getAllName(final SessionContext ctx)
 	{
-		setProperty(ctx, NAME,value);
+		return (Map<Language,String>)getAllLocalizedProperties(ctx,NAME,C2LManager.getInstance().getAllLanguages());
+	}
+	
+	/**
+	 * <i>Generated method</i> - Getter of the <code>Organization.name</code> attribute. 
+	 * @return the localized name - Organisation's name.
+	 */
+	public Map<Language,String> getAllName()
+	{
+		return getAllName( getSession().getSessionContext() );
 	}
 	
 	/**
 	 * <i>Generated method</i> - Setter of the <code>Organization.name</code> attribute. 
-	 * @param value the name - Contains localized values
+	 * @param value the name - Organisation's name.
+	 */
+	public void setName(final SessionContext ctx, final String value)
+	{
+		if( ctx == null || ctx.getLanguage() == null )
+		{
+			throw new JaloInvalidParameterException("GeneratedOrganization.setName requires a session language", 0 );
+		}
+		setLocalizedProperty(ctx, NAME,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Organization.name</code> attribute. 
+	 * @param value the name - Organisation's name.
 	 */
 	public void setName(final String value)
 	{
@@ -323,8 +352,26 @@ public abstract class GeneratedOrganization extends GenericItem
 	}
 	
 	/**
+	 * <i>Generated method</i> - Setter of the <code>Organization.name</code> attribute. 
+	 * @param value the name - Organisation's name.
+	 */
+	public void setAllName(final SessionContext ctx, final Map<Language,String> value)
+	{
+		setAllLocalizedProperties(ctx,NAME,value);
+	}
+	
+	/**
+	 * <i>Generated method</i> - Setter of the <code>Organization.name</code> attribute. 
+	 * @param value the name - Organisation's name.
+	 */
+	public void setAllName(final Map<Language,String> value)
+	{
+		setAllName( getSession().getSessionContext(), value );
+	}
+	
+	/**
 	 * <i>Generated method</i> - Getter of the <code>Organization.phone</code> attribute.
-	 * @return the phone
+	 * @return the phone - Organisation's phone.
 	 */
 	public String getPhone(final SessionContext ctx)
 	{
@@ -333,7 +380,7 @@ public abstract class GeneratedOrganization extends GenericItem
 	
 	/**
 	 * <i>Generated method</i> - Getter of the <code>Organization.phone</code> attribute.
-	 * @return the phone
+	 * @return the phone - Organisation's phone.
 	 */
 	public String getPhone()
 	{
@@ -342,7 +389,7 @@ public abstract class GeneratedOrganization extends GenericItem
 	
 	/**
 	 * <i>Generated method</i> - Setter of the <code>Organization.phone</code> attribute. 
-	 * @param value the phone
+	 * @param value the phone - Organisation's phone.
 	 */
 	public void setPhone(final SessionContext ctx, final String value)
 	{
@@ -351,7 +398,7 @@ public abstract class GeneratedOrganization extends GenericItem
 	
 	/**
 	 * <i>Generated method</i> - Setter of the <code>Organization.phone</code> attribute. 
-	 * @param value the phone
+	 * @param value the phone - Organisation's phone.
 	 */
 	public void setPhone(final String value)
 	{
