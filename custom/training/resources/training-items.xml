@@ -42,31 +42,25 @@
 					<description>Id(not a PK)</description>
 					<persistence type="property" />
 					<modifiers read="true" write="true" search="true"
-						optional="false" unique="true" />
+						optional="true" unique="true" />
 				</attribute>
 
-				<attribute qualifier="name" type="java.lang.String"
-					generate="true">
+				<attribute qualifier="name" type="localized:java.lang.String">
 					<description>Organisation's name.</description>
 					<persistence type="property" />
-					<modifiers read="true" write="true" search="true"
-						optional="false" />
+					<modifiers read="true" write="true" search="true" optional="true" />
 				</attribute>
 
-				<attribute qualifier="phone" type="java.lang.String"
-					generate="true">
+				<attribute qualifier="phone" type="java.lang.String">
 					<description>Organisation's phone.</description>
 					<persistence type="property" />
-					<modifiers read="true" write="true" search="true"
-						optional="false" />
+					<modifiers read="true" write="true" search="true" optional="true" />
 				</attribute>
 				
-				<attribute qualifier="email" type="java.lang.String"
-					generate="true">
+				<attribute qualifier="email" type="java.lang.String">
 					<description>Organisation's email.</description>
 					<persistence type="property" />
-					<modifiers read="true" write="true" search="true"
-						optional="false" />
+					<modifiers read="true" write="true" search="true" optional="true" />
 				</attribute>
 				
 			</attributes>
