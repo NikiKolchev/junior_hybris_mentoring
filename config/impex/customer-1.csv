@@ -1,8 +1,8 @@
-Tom;Toma;1;false;0
-Jerry;Jerrya;2;false;0
-Masha;Mashaa;3;false;0
-bear_1;bear_1a;4;false;0
-bear_2;bear_2a;5;false;0
-bear_3;bear_3a;6;false;0
-Winnie;Winniea;7;false;0
-Pig;Piga;8;false;0
+;tom1;Tom;1;false;0;Tom_&_Jerry1
+;jerry1;Jerry;2;false;0;Tom_&_Jerry1
+;mash1;Masha;3;false;0;Masha_and_bears1
+;bear1;bear_1;4;false;0;Masha_and_bears1
+;bear2;bear_2;5;false;0;Masha_and_bears1
+;bear3;bear_3;6;false;0;Masha_and_bears1
+;winnie1;Winnie;7;false;0;Winnie_the_Pooh&Co1
+;pig1;Pig;8;false;0;Winnie_the_Pooh&Co1
