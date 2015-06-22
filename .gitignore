@@ -31,6 +31,12 @@ eclipsebin/*
 classes/*
 gensrc/*
 
+**/gensrc/*
+
+custom/**/gensrc/*
+
+custom/training/gensrc/
+
 telcotrailcore-webtestclasses.xml
 telcotrailcore-testclasses.xml
 
@@ -53,3 +59,23 @@ traininghmc-webtestclasses.xml
 traininghmc-testclasses.xml
 
 dummy.txt
+/custom/telcotrailcore/gensrc/de/hybris/telcotrail/core/jalo/GeneratedClassificationNotBlankConstraint.java
+/custom/telcotrailcore/gensrc/de/hybris/telcotrail/core/constants/GeneratedTelcotrailCoreConstants.java
+/custom/telcotrailcore/gensrc/de/hybris/telcotrail/core/jalo/GeneratedAccessory.java
+/custom/telcotrailcore/gensrc/de/hybris/telcotrail/core/jalo/GeneratedDevice.java
+/custom/telcotrailcore/gensrc/de/hybris/telcotrail/core/jalo/GeneratedProductReferencesAndClassificationsComponent.java
+/custom/telcotrailcore/gensrc/de/hybris/telcotrail/core/jalo/GeneratedProductReferencesAndClassificationsForDevicesComponent.java
+/custom/telcotrailcore/gensrc/de/hybris/telcotrail/core/jalo/GeneratedServiceAddOn.java
+/custom/telcotrailcore/gensrc/de/hybris/telcotrail/core/jalo/GeneratedServicePlan.java
+/custom/telcotrailcore/gensrc/de/hybris/telcotrail/core/jalo/GeneratedTelcotrailCoreManager.java
+/custom/telcotrailcockpits/gensrc/de/hybris/telcotrail/cockpits/constants/GeneratedTelcotrailCockpitsConstants.java
+/custom/telcotrailfacades/gensrc/de/hybris/telcotrail/facades/constants/GeneratedYtelcoacceleratorfacadesConstants.java
+/custom/telcotrailinitialdata/gensrc/de/hybris/telcotrail/initialdata/constants/GeneratedTelcotrailInitialDataConstants.java
+/custom/training/gensrc/com/epam/training/constants/GeneratedTrainingConstants.java
+/custom/training/gensrc/com/epam/training/jalo/GeneratedTrainingManager.java
+/custom/training/gensrc/com/epam/training/jalo/GeneratedOrganization.java
+/custom/training/gensrc/training/GeneratedTypeInitializer.java
+/custom/traininghmc/gensrc/com/epam/traininghmc/constants/GeneratedTraininghmcConstants.java
+/custom/traininghmc/gensrc/com/epam/traininghmc/jalo/GeneratedTraininghmcManager.java
+/custom/telcotrailcockpits/classes/de/hybris/telcotrail/cockpits/constants/GeneratedTelcotrailCockpitsConstants.class
+/custom/telcotrailcockpits/classes/de/hybris/telcotrail/cockpits/constants/TelcotrailCockpitsConstants.class
