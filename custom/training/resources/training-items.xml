@@ -48,21 +48,31 @@
 				<attribute qualifier="name" type="localized:java.lang.String">
 					<description>Organisation's name.</description>
 					<persistence type="property" />
-					<modifiers read="true" write="true" search="true" optional="true" />
+					<modifiers read="true" write="true" search="true"
+						optional="true" />
 				</attribute>
 
 				<attribute qualifier="phone" type="java.lang.String">
 					<description>Organisation's phone.</description>
 					<persistence type="property" />
-					<modifiers read="true" write="true" search="true" optional="true" />
+					<modifiers read="true" write="true" search="true"
+						optional="true" />
 				</attribute>
-				
+
 				<attribute qualifier="email" type="java.lang.String">
 					<description>Organisation's email.</description>
 					<persistence type="property" />
-					<modifiers read="true" write="true" search="true" optional="true" />
+					<modifiers read="true" write="true" search="true"
+						optional="true" />
 				</attribute>
-				
+
+				<attribute qualifier="customersNumber" type="java.lang.String">
+					<description>A dynamic attribute that check an amount of customers that belog to a particular organization.</description>
+					<persistence type="dynamic" attributeHandler="customersNumberAttributeHandler" />
+					<modifiers read="true" write="false" search="true"
+						optional="true" unique="false" />
+				</attribute>
+
 			</attributes>
 
 		</itemtype>

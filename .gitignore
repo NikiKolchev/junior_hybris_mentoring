@@ -37,6 +37,10 @@ custom/**/gensrc/*
 
 custom/training/gensrc/
 
+*-testclasses.xml
+*-webtestclasses.xml
+*.build.number
+
 telcotrailcore-webtestclasses.xml
 telcotrailcore-testclasses.xml
 
@@ -79,3 +83,4 @@ dummy.txt
 /custom/traininghmc/gensrc/com/epam/traininghmc/jalo/GeneratedTraininghmcManager.java
 /custom/telcotrailcockpits/classes/de/hybris/telcotrail/cockpits/constants/GeneratedTelcotrailCockpitsConstants.class
 /custom/telcotrailcockpits/classes/de/hybris/telcotrail/cockpits/constants/TelcotrailCockpitsConstants.class
+/custom/training/resources/training/training-testclasses.xml
