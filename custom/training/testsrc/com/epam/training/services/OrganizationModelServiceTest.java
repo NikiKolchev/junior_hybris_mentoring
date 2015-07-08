@@ -3,49 +3,50 @@
  */
 package com.epam.training.services;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-
 import com.epam.training.dao.OrganizationDao;
+import com.epam.training.model.OrganizationModel;
 import de.hybris.platform.core.model.user.CustomerModel;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
-import org.junit.Before;
-import org.junit.Test;
-
-import com.epam.training.model.OrganizationModel;
-import org.mockito.Mockito;
+import static org.junit.Assert.assertEquals;
 
 
 /**
  * @author Olha_Horbatiuk
  */
+@RunWith(MockitoJUnitRunner.class)
 public class OrganizationModelServiceTest {
 
     private static final String NO_CUSTOMERS_FOUND = "This organization has no customers.";
     private static final String THREE_CUSTOMERS_FOUND = "This organization has %d customers.";
 
+    @Mock
     private OrganizationModel organization;
-    private OrganizationModelService organizationModelService;
-    private OrganizationDao organizationDaoMock = Mockito.mock(OrganizationDao.class);
+    @Mock
+    private OrganizationDao organizationDaoMock;
 
-    @Before
-    public void setUp() {
-        organizationModelService = new OrganizationModelService();
-        organization = new OrganizationModel();
-    }
+    @InjectMocks
+    private OrganizationModelService organizationModelService;
 
     @Test
     public void requireReturnCorrectlyFormattedStringForNonEmptyCustomersCollection() {
         CustomerModel customer = new CustomerModel();
         List<CustomerModel> threeCustomers = Arrays.asList(customer, customer, customer);
         organization.setCustomers(threeCustomers);
+        Mockito.when(organization.getCustomers()).thenReturn(threeCustomers);
 
-        assertEquals("Resulting string is formatted incorrectly", String.format(THREE_CUSTOMERS_FOUND, Integer.valueOf(threeCustomers.size())), organizationModelService.getValueOfCustomersAmount(organization));
+        assertEquals("Resulting string is formatted incorrectly",
+                String.format(THREE_CUSTOMERS_FOUND, Integer.valueOf(threeCustomers.size())),
+                organizationModelService.getValueOfCustomersAmount(organization));
     }
 
     @Test
@@ -62,29 +63,34 @@ public class OrganizationModelServiceTest {
         assertEquals("No customers message is formatted incorrectly", NO_CUSTOMERS_FOUND, organizationModelService.getValueOfCustomersAmount(organization));
     }
 
-    @Ignore
     @Test
-    public void testGetOrganizationsEmail() throws Exception {
-        String email = "tratata@example.com";
-        organization.setEmail(email);
+    public void requireReturnListOfAllOrganizationsWhenOrganizationsExist() throws Exception {
         List<OrganizationModel> expected = Arrays.asList(organization, organization, organization);
         Mockito.when(organizationDaoMock.findAll()).thenReturn(expected);
 
-        List<String> emails = Arrays.asList(email, email, email);
+        List<OrganizationModel> actual = organizationModelService.getAllOrganizations();
 
-//        List<String> actual = organizationModelService.getOrganizationsEmail();
-
-//        assertEquals(emails, actual);
-
+        assertEquals(expected, actual);
     }
 
     @Test
-    public void testGetAll() throws Exception {
-        List<OrganizationModel> expected = Arrays.asList(organization, organization, organization);
+    public void requireReturnEmptyListOfAllOrganizationsWhenOrganizationsListIsEmpty() throws Exception {
+        List<OrganizationModel> expected = Collections.EMPTY_LIST;
         Mockito.when(organizationDaoMock.findAll()).thenReturn(expected);
 
-//        List<OrganizationModel> actual = organizationModelService.getAll();
+        List<OrganizationModel> actual = organizationModelService.getAllOrganizations();
 
-//        assertEquals(expected, actual);
+        assertEquals(expected, actual);
     }
+
+    @Test
+    public void requireReturnEmptyListOfAllOrganizationsWhenOrganizationsListIsNull() throws Exception {
+        List<OrganizationModel> expected = Collections.EMPTY_LIST;
+        Mockito.when(organizationDaoMock.findAll()).thenReturn(null);
+
+        List<OrganizationModel> actual = organizationModelService.getAllOrganizations();
+
+        assertEquals(expected, actual);
+    }
+
 }

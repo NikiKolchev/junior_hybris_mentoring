@@ -21,9 +21,20 @@
     <bean id="organizationDao" class="com.epam.training.dao.impl.DefaultOrganizationDao"/>
 
     <bean id="mailService" class="com.epam.training.services.MailService"/>
+
     <bean id="emailService" class="de.hybris.platform.acceleratorservices.email.impl.DefaultEmailService"/>
 
     <bean id="sendEmailJob" class="com.epam.training.jobs.SendEmailJob" autowire="byName"/>
+
+    <bean id="properties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="properties">
+            <value>
+                mailService.sendersEmail = darwinepam@gmail.com
+                mailService.sendersName=darwinepam
+                mailService.subject=Daily mail
+            </value>
+        </property>
+    </bean>
 
     <!-- Spring Integration -->
     <!--<import resource="classpath:/training/integration/hot-folder-training-hybris-spring.xml"/> -->
