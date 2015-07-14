@@ -13,20 +13,19 @@
  */
 package de.hybris.telcotrail.storefront.controllers.pages;
 
+import com.epam.training.dao.TrainingCustomerModelDao;
+import com.epam.training.enums.Status;
 import de.hybris.platform.cms2.exceptions.CMSItemNotFoundException;
 import de.hybris.platform.cms2.model.pages.AbstractPageModel;
+import de.hybris.platform.core.model.user.CustomerModel;
+import de.hybris.platform.servicelayer.model.ModelService;
+import de.hybris.platform.servicelayer.user.UserService;
 import de.hybris.telcotrail.storefront.controllers.ControllerConstants;
+import de.hybris.telcotrail.storefront.controllers.util.GlobalMessages;
 import de.hybris.telcotrail.storefront.forms.RegisterForm;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
 import org.springframework.security.web.savedrequest.HttpSessionRequestCache;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,75 +35,94 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
+
 
 /**
  * Login Controller. Handles login and register for the account flow.
  */
 @Controller
 @RequestMapping(value = "/login")
-public class LoginPageController extends AbstractLoginPageController
-{
+public class LoginPageController extends AbstractLoginPageController {
 
-	@Override
-	protected String getView()
-	{
-		return ControllerConstants.Views.Pages.Account.AccountLoginPage;
-	}
+    public static final String LOGIN_ERROR_ACCOUNT_IS_BLOCKED_TITLE = "login.error.account.is.blocked.title";
+    public static final int BLOCK_USER_ATTEMPTS = 3;
 
-	@Override
-	protected String getSuccessRedirect(final HttpServletRequest request, final HttpServletResponse response)
-	{
-		if (httpSessionRequestCache.getRequest(request, response) != null)
-		{
-			return httpSessionRequestCache.getRequest(request, response).getRedirectUrl();
-		}
-		return "/my-account";
-	}
+    @Autowired
+    private UserService userService;
 
-	@Override
-	protected AbstractPageModel getCmsPage() throws CMSItemNotFoundException
-	{
-		return getContentPageForLabelOrId("login");
-	}
+    @Autowired
+    private ModelService modelService;
 
-	private HttpSessionRequestCache httpSessionRequestCache;
+    @Autowired
+    TrainingCustomerModelDao customerModelDao;
 
-	@Autowired
-	@Qualifier("httpSessionRequestCache")
-	public void setHttpSessionRequestCache(final HttpSessionRequestCache accHttpSessionRequestCache)
-	{
-		this.httpSessionRequestCache = accHttpSessionRequestCache;
-	}
+    @Override
+    protected String getView() {
+        return ControllerConstants.Views.Pages.Account.AccountLoginPage;
+    }
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String doLogin(@RequestHeader(value = "referer", required = false) final String referer,
-			@RequestParam(value = "error", defaultValue = "false") final boolean loginError, final Model model,
-			final HttpServletRequest request, final HttpServletResponse response, final HttpSession session)
-			throws CMSItemNotFoundException
-	{
-		if (!loginError)
-		{
-			storeReferer(referer, request, response);
-		}
-		return getDefaultLoginPage(loginError, session, model);
-	}
+    @Override
+    protected String getSuccessRedirect(final HttpServletRequest request, final HttpServletResponse response) {
+        if (httpSessionRequestCache.getRequest(request, response) != null) {
+            return httpSessionRequestCache.getRequest(request, response).getRedirectUrl();
+        }
+        return "/my-account";
+    }
 
-	protected void storeReferer(final String referer, final HttpServletRequest request, final HttpServletResponse response)
-	{
-		if (StringUtils.isNotBlank(referer))
-		{
-			httpSessionRequestCache.saveRequest(request, response);
-		}
-	}
+    @Override
+    protected AbstractPageModel getCmsPage() throws CMSItemNotFoundException {
+        return getContentPageForLabelOrId("login");
+    }
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String doRegister(@RequestHeader(value = "referer", required = false) final String referer,
-			@Valid final RegisterForm form, final BindingResult bindingResult, final Model model, final HttpServletRequest request,
-			final HttpServletResponse response) throws CMSItemNotFoundException
-	{
-		return processRegisterUserRequest(referer, form, bindingResult, model, request, response);
-	}
+    private HttpSessionRequestCache httpSessionRequestCache;
 
+    @Autowired
+    @Qualifier("httpSessionRequestCache")
+    public void setHttpSessionRequestCache(final HttpSessionRequestCache accHttpSessionRequestCache) {
+        this.httpSessionRequestCache = accHttpSessionRequestCache;
+    }
 
+    @RequestMapping(method = RequestMethod.GET)
+    public String doLogin(@RequestHeader(value = "referer", required = false) final String referer,
+                          @RequestParam(value = "error", defaultValue = "false") final boolean loginError, final Model model,
+                          final HttpServletRequest request, final HttpServletResponse response, final HttpSession session)
+            throws CMSItemNotFoundException {
+
+        if (loginError) {
+            final CustomerModel customerModel = (CustomerModel) userService.getUserForUID(getUsernameTryingToLogin(session));
+            int attemptCount = customerModel.getAttemptCount();
+
+            if (attemptCount == BLOCK_USER_ATTEMPTS) {
+                if (Status.BLOCKED != customerModel.getStatus()) {
+                    customerModel.setStatus(Status.BLOCKED);
+                    modelService.save(customerModel);
+                }
+                GlobalMessages.addErrorMessage(model, LOGIN_ERROR_ACCOUNT_IS_BLOCKED_TITLE);
+            } else {
+                customerModel.setAttemptCount(++attemptCount);
+                modelService.save(customerModel);
+            }
+        } else {
+            storeReferer(referer, request, response);
+        }
+        return getDefaultLoginPage(loginError, session, model);
+    }
+
+    protected void storeReferer(final String referer, final HttpServletRequest request, final HttpServletResponse response) {
+        if (StringUtils.isNotBlank(referer)) {
+            httpSessionRequestCache.saveRequest(request, response);
+        }
+    }
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String doRegister(@RequestHeader(value = "referer", required = false) final String referer,
+                             @Valid final RegisterForm form, final BindingResult bindingResult, final Model model, final HttpServletRequest request,
+                             final HttpServletResponse response) throws CMSItemNotFoundException {
+        return processRegisterUserRequest(referer, form, bindingResult, model, request, response);
+    }
 
 }

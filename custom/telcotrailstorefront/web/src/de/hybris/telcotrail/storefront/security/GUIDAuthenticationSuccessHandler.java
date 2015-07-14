@@ -13,15 +13,18 @@
  */
 package de.hybris.telcotrail.storefront.security;
 
-import java.io.IOException;
+import de.hybris.platform.core.model.user.CustomerModel;
+import de.hybris.platform.servicelayer.model.ModelService;
+import de.hybris.platform.servicelayer.user.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Required;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Required;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import java.io.IOException;
 
 
 /**
@@ -29,6 +32,11 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
  */
 public class GUIDAuthenticationSuccessHandler implements AuthenticationSuccessHandler
 {
+	@Autowired
+	private UserService userService;
+	@Autowired
+	private ModelService modelService;
+
 	private GUIDCookieStrategy guidCookieStrategy;
 	private AuthenticationSuccessHandler authenticationSuccessHandler;
 
@@ -36,6 +44,10 @@ public class GUIDAuthenticationSuccessHandler implements AuthenticationSuccessHa
 	public void onAuthenticationSuccess(final HttpServletRequest request, final HttpServletResponse response,
 			final Authentication authentication) throws IOException, ServletException
 	{
+		CustomerModel customerModel = (CustomerModel) userService.getUserForUID(authentication.getName());
+		customerModel.setAttemptCount(0);
+		modelService.save(customerModel);
+
 		getGuidCookieStrategy().setCookie(request, response);
 		getAuthenticationSuccessHandler().onAuthenticationSuccess(request, response, authentication);
 	}
