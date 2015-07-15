@@ -24,14 +24,6 @@
     <itemtypes>
         <itemtype code="Customer" autocreate="false" generate="false">
             <attributes>
-                <!--<attribute qualifier="status" type="java.lang.Boolean"-->
-                <!--generate="true">-->
-                <!--<description>Status of user describes user is active or blocked.</description>-->
-                <!--<modifiers optional="false" />-->
-                <!--<persistence type="property" />-->
-                <!--<defaultvalue>false</defaultvalue>-->
-                <!--</attribute>-->
-
                 <attribute qualifier="status" type="Status">
                     <description>Status of user describes user is active or blocked.</description>
                     <persistence type="property"/>

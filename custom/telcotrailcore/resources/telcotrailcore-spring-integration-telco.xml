@@ -57,11 +57,11 @@
 		class="de.hybris.platform.acceleratorservices.dataimport.batch.converter.impl.DefaultImpexConverter">
 		<property name="header">
 			<value>
-				INSERT_UPDATE Customer;uid[unique=true];name;customerID[uniqe=true];status;attemptCount;organizations(name[lang=en])[collection-delimiter=|]
+				INSERT_UPDATE Customer;uid[unique=true];name;customerID[uniqe=true];attemptCount;organizations(name[lang=en])[collection-delimiter=|]
 			</value>
 		</property>
 		<property name="impexRow">
-			<value>;{0};{1};{2};{3};{4};{5}</value>
+			<value>;{0};{1};{2};{3};{4}</value>
 		</property>
 	</bean> 
 

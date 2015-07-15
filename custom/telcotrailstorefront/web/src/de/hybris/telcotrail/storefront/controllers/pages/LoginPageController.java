@@ -57,8 +57,8 @@ public class LoginPageController extends AbstractLoginPageController {
     @Autowired
     private ModelService modelService;
 
-    @Autowired
-    TrainingCustomerModelDao customerModelDao;
+//    @Autowired
+//    TrainingCustomerModelDao customerModelDao;
 
     @Override
     protected String getView() {
