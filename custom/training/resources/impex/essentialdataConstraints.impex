@@ -1,0 +1,2 @@
+INSERT_UPDATE SizeConstraint;descriptor(enclosingType(name),qualifier);id[unique=true,allownull=true];max[allownull=true];min[allownull=true];qualifier[allownull=true];severity(code,itemtype(code));target[allownull=true];type(code);constraintGroups(id);message[lang=en]
+;Organization:name;SizeConstraintOrganizationName;15;3;code;ERROR:Severity;com.epam.training.model.OrganizationModel;Organization;Default;Organization's name is too short or long. Please do something with it.
