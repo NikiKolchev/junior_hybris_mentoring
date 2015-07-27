@@ -36,4 +36,13 @@
         </property>
     </bean>
 
+    <bean id="emailInterceptor" class="com.epam.training.interceptors.EmailInterceptor"
+          scope="tenant" autowire="byName"/>
+
+    <bean id="emailInterceptorMapping" scope="tenant"
+          class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+        <property name="interceptor" ref="emailInterceptor"/>
+        <property name="typeCode" value="Organization"/>
+    </bean>
+
 </beans>

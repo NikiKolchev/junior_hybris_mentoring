@@ -50,12 +50,12 @@ public class MailServiceTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void requireReturnIllegalArgumentExceptionWhenEachOfOrganizationModelsIsEmpty() {
-        mailService.sendEmail(Collections.EMPTY_LIST);
+        mailService.sendEmail(Collections.EMPTY_LIST,"");
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void requireReturnIllegalArgumentExceptionWhenEachOfOrganizationModelsIsNull() {
-        mailService.sendEmail(null);
+        mailService.sendEmail(null,"");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -64,7 +64,7 @@ public class MailServiceTest {
 
         when(organizationModel.getCustomers()).thenReturn(null);
 
-        mailService.sendEmail(organizationModels);
+        mailService.sendEmail(organizationModels,"");
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -73,7 +73,7 @@ public class MailServiceTest {
 
         when(organizationModel.getName()).thenReturn(null);
 
-        mailService.sendEmail(organizationModels);
+        mailService.sendEmail(organizationModels,"");
     }
 
     @Test
@@ -98,7 +98,7 @@ public class MailServiceTest {
 
         when(emailService.send(emailMessageModel)).thenReturn(true);
 
-        mailService.sendEmail(organizationModels);
+        mailService.sendEmail(organizationModels,BODY_MESSAGE);
 
         verify(emailService, times(customerModels.size())).send(emailMessageModel);
     }
@@ -128,7 +128,7 @@ public class MailServiceTest {
 
         when(emailService.send(emailMessageModel)).thenReturn(true);
 
-        mailService.sendEmail(organizationModels);
+        mailService.sendEmail(organizationModels, BODY_MESSAGE);
 
         verify(emailService, times(customerModels.size() - 1)).send(emailMessageModel);
     }

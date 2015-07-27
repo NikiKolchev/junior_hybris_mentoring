@@ -14,11 +14,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
-/**
- * Created by Olha_Horbatiuk on 6/25/2015.
- */
+
 public class SendEmailJob extends AbstractJobPerformable<CronJobModel> {
+
     private static final Logger LOGGER = Logger.getLogger(SendEmailJob.class);
+    public static final String MESSAGE_PREFIX = "In our organization working: ";
 
     @Autowired
     private MailService mailService;
@@ -34,8 +34,7 @@ public class SendEmailJob extends AbstractJobPerformable<CronJobModel> {
             LOGGER.info("No competitions have changed, skipping send emails");
             return new PerformResult(CronJobResult.SUCCESS, CronJobStatus.FINISHED);
         }
-
-        mailService.sendEmail(organizationModels);
+        mailService.sendEmail(organizationModels, MESSAGE_PREFIX);
         return new PerformResult(CronJobResult.SUCCESS, CronJobStatus.FINISHED);
     }
 

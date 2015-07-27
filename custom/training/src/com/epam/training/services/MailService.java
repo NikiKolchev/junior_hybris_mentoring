@@ -27,7 +27,7 @@ public class MailService {
     @Autowired
     private EmailService emailService;
 
-    public void sendEmail(List<OrganizationModel> organizationModels) throws IllegalArgumentException {
+    public void sendEmail(List<OrganizationModel> organizationModels, String message) throws IllegalArgumentException {
         if (CollectionUtils.isEmpty(organizationModels)) {
             throw new IllegalArgumentException("organizationModels must not be null or empty");
         }
@@ -36,7 +36,7 @@ public class MailService {
 
         for (OrganizationModel organizationModel : organizationModels) {
             LOGGER.info("Creating bodyMessage...");
-            String bodyMessage = getBodyMessage(organizationModel);
+            String bodyMessage = getBodyMessage(organizationModel, message);
             LOGGER.info("BodyMessage created. " + bodyMessage.toString());
 
             LOGGER.info("Creating EmailMessageModel...");
@@ -55,12 +55,12 @@ public class MailService {
         }
     }
 
-    private String getBodyMessage(OrganizationModel organizationModel) {
+    private String getBodyMessage(OrganizationModel organizationModel, String message) {
         if (CollectionUtils.isEmpty(organizationModel.getCustomers())) {
             throw new IllegalArgumentException("customers must not be null or empty");
         }
         List<CustomerModel> customers = (List<CustomerModel>) organizationModel.getCustomers();
-        StringBuilder bodyMessage = new StringBuilder("In our organization working:");
+        StringBuilder bodyMessage = new StringBuilder(message);
         customers = (List<CustomerModel>) organizationModel.getCustomers();
         for (CustomerModel customer : customers) {
             bodyMessage.append(" " + customer.getName());
