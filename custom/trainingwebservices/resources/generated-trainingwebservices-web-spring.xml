@@ -32,6 +32,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.mcc.dto.AbstractLinkEntryDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.lucenesearch.dto.AbstractLuceneItemDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.acceleratorcms.dto.components.AbstractMediaContainerComponentDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.job.AbstractMediaCronJobDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.AbstractMediaDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.order.AbstractOrderEntryDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.order.AbstractOrderDTO</value>
@@ -264,6 +265,9 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.cms2.dto.relations.ContentSlotForTemplateDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cms2.dto.contents.ContentSlotNameDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cms2.dto.contents.contentslot.ContentSlotDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.ConversionErrorLogDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.ConversionGroupDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.ConversionMediaFormatDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.c2l.CountryDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cockpit.dto.CoverageConstraintGroupDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.order.payment.CreditCardPaymentInfoDTO</value>
@@ -325,6 +329,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.acceleratorservices.dto.export.ExportDataHistoryEntryDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.impex.dto.exp.ExportDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.type.ExpressionAttributeDescriptorDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.job.ExtractMediaMetaDataCronJobDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.commons.dto.FOPFormatterDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.commercesearch.dto.FacetValueCountSolrFacetVisibilityRuleDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cms2lib.dto.components.FlashComponentDTO</value>
@@ -397,11 +402,13 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.validation.dto.constraints.jsr303.MaxConstraintDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaContainerDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaContextDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.job.MediaConversionCronJobDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaFolderDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cronjob.dto.MediaFolderStructureMigrationCronJobDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaFormatMappingDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaFormatDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.commons.dto.MediaFormatterDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.MediaMetaDataDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cronjob.dto.MediaProcessCronJobDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cronjob.dto.MediaProcessorStepDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaDTO</value>
@@ -728,6 +735,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.mcc.dto.AbstractLinkEntriesDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.lucenesearch.dto.AbstractLuceneItemsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.acceleratorcms.dto.components.AbstractMediaContainerComponentsDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.job.AbstractMediaCronJobsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.AbstractMediasDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.order.AbstractOrderEntriesDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.order.AbstractOrdersDTO</value>
@@ -960,6 +968,9 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.cms2.dto.relations.ContentSlotForTemplatesDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cms2.dto.contents.ContentSlotNamesDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cms2.dto.contents.contentslot.ContentSlotsDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.ConversionErrorLogsDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.ConversionGroupsDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.ConversionMediaFormatsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.c2l.CountriesDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cockpit.dto.CoverageConstraintGroupsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.order.payment.CreditCardPaymentInfosDTO</value>
@@ -1021,6 +1032,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.acceleratorservices.dto.export.ExportDataHistoryEntriesDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.impex.dto.exp.ExportsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.type.ExpressionAttributeDescriptorsDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.job.ExtractMediaMetaDataCronJobsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.commons.dto.FOPFormattersDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.commercesearch.dto.FacetValueCountSolrFacetVisibilityRulesDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cms2lib.dto.components.FlashComponentsDTO</value>
@@ -1093,11 +1105,13 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.validation.dto.constraints.jsr303.MaxConstraintsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaContainersDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaContextsDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.job.MediaConversionCronJobsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cronjob.dto.MediaFolderStructureMigrationCronJobsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaFoldersDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaFormatMappingsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediaFormatsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.commons.dto.MediaFormattersDTO</value>
+			<value type="java.lang.Class">de.hybris.platform.mediaconversion.dto.MediaMetaDatasDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cronjob.dto.MediaProcessCronJobsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.cronjob.dto.MediaProcessorStepsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.media.MediasDTO</value>
@@ -1435,6 +1449,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="abstractLinkEntriesResource" class="de.hybris.platform.mcc.resource.AbstractLinkEntriesResource" scope="prototype" parent="abstractResource"/>
 	<bean id="abstractLuceneItemsResource" class="de.hybris.platform.lucenesearch.resource.AbstractLuceneItemsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="abstractMediaContainerComponentsResource" class="de.hybris.platform.acceleratorcms.resource.components.AbstractMediaContainerComponentsResource" scope="prototype" parent="abstractResource"/>
+	<bean id="abstractMediaCronJobsResource" class="de.hybris.platform.mediaconversion.resource.job.AbstractMediaCronJobsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="abstractMediasResource" class="de.hybris.platform.core.resource.media.AbstractMediasResource" scope="prototype" parent="abstractResource"/>
 	<bean id="abstractOrderEntriesResource" class="de.hybris.platform.core.resource.order.AbstractOrderEntriesResource" scope="prototype" parent="abstractResource"/>
 	<bean id="abstractOrdersResource" class="de.hybris.platform.core.resource.order.AbstractOrdersResource" scope="prototype" parent="abstractResource"/>
@@ -1667,6 +1682,9 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="contentSlotForTemplatesResource" class="de.hybris.platform.cms2.resource.relations.ContentSlotForTemplatesResource" scope="prototype" parent="abstractResource"/>
 	<bean id="contentSlotNamesResource" class="de.hybris.platform.cms2.resource.contents.ContentSlotNamesResource" scope="prototype" parent="abstractResource"/>
 	<bean id="contentSlotsResource" class="de.hybris.platform.cms2.resource.contents.contentslot.ContentSlotsResource" scope="prototype" parent="abstractResource"/>
+	<bean id="conversionErrorLogsResource" class="de.hybris.platform.mediaconversion.resource.ConversionErrorLogsResource" scope="prototype" parent="abstractResource"/>
+	<bean id="conversionGroupsResource" class="de.hybris.platform.mediaconversion.resource.ConversionGroupsResource" scope="prototype" parent="abstractResource"/>
+	<bean id="conversionMediaFormatsResource" class="de.hybris.platform.mediaconversion.resource.ConversionMediaFormatsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="countriesResource" class="de.hybris.platform.core.resource.c2l.CountriesResource" scope="prototype" parent="abstractResource"/>
 	<bean id="coverageConstraintGroupsResource" class="de.hybris.platform.cockpit.resource.CoverageConstraintGroupsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="creditCardPaymentInfosResource" class="de.hybris.platform.core.resource.order.payment.CreditCardPaymentInfosResource" scope="prototype" parent="abstractResource"/>
@@ -1728,6 +1746,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="exportDataHistoryEntriesResource" class="de.hybris.platform.acceleratorservices.resource.export.ExportDataHistoryEntriesResource" scope="prototype" parent="abstractResource"/>
 	<bean id="exportsResource" class="de.hybris.platform.impex.resource.exp.ExportsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="expressionAttributeDescriptorsResource" class="de.hybris.platform.core.resource.type.ExpressionAttributeDescriptorsResource" scope="prototype" parent="abstractResource"/>
+	<bean id="extractMediaMetaDataCronJobsResource" class="de.hybris.platform.mediaconversion.resource.job.ExtractMediaMetaDataCronJobsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="fOPFormattersResource" class="de.hybris.platform.commons.resource.FOPFormattersResource" scope="prototype" parent="abstractResource"/>
 	<bean id="facetValueCountSolrFacetVisibilityRulesResource" class="de.hybris.platform.commercesearch.resource.FacetValueCountSolrFacetVisibilityRulesResource" scope="prototype" parent="abstractResource"/>
 	<bean id="flashComponentsResource" class="de.hybris.platform.cms2lib.resource.components.FlashComponentsResource" scope="prototype" parent="abstractResource"/>
@@ -1800,11 +1819,13 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="maxConstraintsResource" class="de.hybris.platform.validation.resource.constraints.jsr303.MaxConstraintsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaContainersResource" class="de.hybris.platform.core.resource.media.MediaContainersResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaContextsResource" class="de.hybris.platform.core.resource.media.MediaContextsResource" scope="prototype" parent="abstractResource"/>
+	<bean id="mediaConversionCronJobsResource" class="de.hybris.platform.mediaconversion.resource.job.MediaConversionCronJobsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaFolderStructureMigrationCronJobsResource" class="de.hybris.platform.cronjob.resource.MediaFolderStructureMigrationCronJobsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaFoldersResource" class="de.hybris.platform.core.resource.media.MediaFoldersResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaFormatMappingsResource" class="de.hybris.platform.core.resource.media.MediaFormatMappingsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaFormatsResource" class="de.hybris.platform.core.resource.media.MediaFormatsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaFormattersResource" class="de.hybris.platform.commons.resource.MediaFormattersResource" scope="prototype" parent="abstractResource"/>
+	<bean id="mediaMetaDatasResource" class="de.hybris.platform.mediaconversion.resource.MediaMetaDatasResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaProcessCronJobsResource" class="de.hybris.platform.cronjob.resource.MediaProcessCronJobsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaProcessorStepsResource" class="de.hybris.platform.cronjob.resource.MediaProcessorStepsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediasResource" class="de.hybris.platform.core.resource.media.MediasResource" scope="prototype" parent="abstractResource"/>
@@ -2128,6 +2149,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="abstractLinkEntryResource" class="de.hybris.platform.mcc.resource.AbstractLinkEntryResource" scope="prototype" parent="abstractResource"/>
 	<bean id="abstractLuceneItemResource" class="de.hybris.platform.lucenesearch.resource.AbstractLuceneItemResource" scope="prototype" parent="abstractResource"/>
 	<bean id="abstractMediaContainerComponentResource" class="de.hybris.platform.acceleratorcms.resource.components.AbstractMediaContainerComponentResource" scope="prototype" parent="abstractResource"/>
+	<bean id="abstractMediaCronJobResource" class="de.hybris.platform.mediaconversion.resource.job.AbstractMediaCronJobResource" scope="prototype" parent="abstractResource"/>
 	<bean id="abstractMediaResource" class="de.hybris.platform.core.resource.media.AbstractMediaResource" scope="prototype" parent="abstractResource"/>
 	<bean id="abstractOrderEntryResource" class="de.hybris.platform.core.resource.order.AbstractOrderEntryResource" scope="prototype" parent="abstractResource"/>
 	<bean id="abstractOrderResource" class="de.hybris.platform.core.resource.order.AbstractOrderResource" scope="prototype" parent="abstractResource"/>
@@ -2360,6 +2382,9 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="contentSlotForTemplateResource" class="de.hybris.platform.cms2.resource.relations.ContentSlotForTemplateResource" scope="prototype" parent="abstractResource"/>
 	<bean id="contentSlotNameResource" class="de.hybris.platform.cms2.resource.contents.ContentSlotNameResource" scope="prototype" parent="abstractResource"/>
 	<bean id="contentSlotResource" class="de.hybris.platform.cms2.resource.contents.contentslot.ContentSlotResource" scope="prototype" parent="abstractResource"/>
+	<bean id="conversionErrorLogResource" class="de.hybris.platform.mediaconversion.resource.ConversionErrorLogResource" scope="prototype" parent="abstractResource"/>
+	<bean id="conversionGroupResource" class="de.hybris.platform.mediaconversion.resource.ConversionGroupResource" scope="prototype" parent="abstractResource"/>
+	<bean id="conversionMediaFormatResource" class="de.hybris.platform.mediaconversion.resource.ConversionMediaFormatResource" scope="prototype" parent="abstractResource"/>
 	<bean id="countryResource" class="de.hybris.platform.core.resource.c2l.CountryResource" scope="prototype" parent="abstractResource"/>
 	<bean id="coverageConstraintGroupResource" class="de.hybris.platform.cockpit.resource.CoverageConstraintGroupResource" scope="prototype" parent="abstractResource"/>
 	<bean id="creditCardPaymentInfoResource" class="de.hybris.platform.core.resource.order.payment.CreditCardPaymentInfoResource" scope="prototype" parent="abstractResource"/>
@@ -2421,6 +2446,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="exportDataHistoryEntryResource" class="de.hybris.platform.acceleratorservices.resource.export.ExportDataHistoryEntryResource" scope="prototype" parent="abstractResource"/>
 	<bean id="exportResource" class="de.hybris.platform.impex.resource.exp.ExportResource" scope="prototype" parent="abstractResource"/>
 	<bean id="expressionAttributeDescriptorResource" class="de.hybris.platform.core.resource.type.ExpressionAttributeDescriptorResource" scope="prototype" parent="abstractResource"/>
+	<bean id="extractMediaMetaDataCronJobResource" class="de.hybris.platform.mediaconversion.resource.job.ExtractMediaMetaDataCronJobResource" scope="prototype" parent="abstractResource"/>
 	<bean id="fOPFormatterResource" class="de.hybris.platform.commons.resource.FOPFormatterResource" scope="prototype" parent="abstractResource"/>
 	<bean id="facetValueCountSolrFacetVisibilityRuleResource" class="de.hybris.platform.commercesearch.resource.FacetValueCountSolrFacetVisibilityRuleResource" scope="prototype" parent="abstractResource"/>
 	<bean id="flashComponentResource" class="de.hybris.platform.cms2lib.resource.components.FlashComponentResource" scope="prototype" parent="abstractResource"/>
@@ -2493,11 +2519,13 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="maxConstraintResource" class="de.hybris.platform.validation.resource.constraints.jsr303.MaxConstraintResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaContainerResource" class="de.hybris.platform.core.resource.media.MediaContainerResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaContextResource" class="de.hybris.platform.core.resource.media.MediaContextResource" scope="prototype" parent="abstractResource"/>
+	<bean id="mediaConversionCronJobResource" class="de.hybris.platform.mediaconversion.resource.job.MediaConversionCronJobResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaFolderResource" class="de.hybris.platform.core.resource.media.MediaFolderResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaFolderStructureMigrationCronJobResource" class="de.hybris.platform.cronjob.resource.MediaFolderStructureMigrationCronJobResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaFormatMappingResource" class="de.hybris.platform.core.resource.media.MediaFormatMappingResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaFormatResource" class="de.hybris.platform.core.resource.media.MediaFormatResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaFormatterResource" class="de.hybris.platform.commons.resource.MediaFormatterResource" scope="prototype" parent="abstractResource"/>
+	<bean id="mediaMetaDataResource" class="de.hybris.platform.mediaconversion.resource.MediaMetaDataResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaProcessCronJobResource" class="de.hybris.platform.cronjob.resource.MediaProcessCronJobResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaProcessorStepResource" class="de.hybris.platform.cronjob.resource.MediaProcessorStepResource" scope="prototype" parent="abstractResource"/>
 	<bean id="mediaResource" class="de.hybris.platform.core.resource.media.MediaResource" scope="prototype" parent="abstractResource"/>
