@@ -4,5 +4,5 @@ INSERT_UPDATE MediaFolder;Qualifier[unique=true];path
 ;custom;custom
 
 INSERT_UPDATE Media;code[unique=true];$catalogVersion;realfilename;mediaFormat(qualifier);@media[translator=de.hybris.platform.impex.jalo.media.MediaDataTranslator];folder(qualifier)[default='custom'];mime[default='image/png']
-;beachOrganization;;nature_work.jpg;Default-WorkingFormat;jar:com.epam.training.jalo.GeneratedTrainingManager&/training/media/nature_work.jpg;;
-;tom&jerryOrganization;;tom_and_jerry.jpg;Default-WorkingFormat;jar:com.epam.training.jalo.GeneratedTrainingManager&/training/media/tom_and_jerry.jpg;;
+;beachOrganization;;nature_work.jpg;Default-WorkingFormat;jar:com.epam.training.jalo.TrainingManager&/training/media/nature_work.jpg;;
+;tom&jerryOrganization;;tom_and_jerry.jpg;Default-WorkingFormat;jar:com.epam.training.jalo.TrainingManager&/training/media/tom_and_jerry.jpg;;
