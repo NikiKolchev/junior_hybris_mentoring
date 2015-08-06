@@ -22,6 +22,36 @@
     </relations>
 
     <itemtypes>
+
+        <itemtype code="Supplier" autocreate="true" generate="true">
+            <deployment table="supplier" typecode="15050" />
+            <custom-properties>
+                <property name="catalogItemType">
+                    <value>java.lang.Boolean.TRUE</value>
+                </property>
+                <property name="catalogVersionAttributeQualifier">
+                    <value>"catalogVersion"</value>
+                </property>
+                <property name="uniqueKeyAttributeQualifier">
+                    <value>"id"</value>
+                </property>
+            </custom-properties>
+            <attributes>
+                <attribute qualifier="id" type="java.lang.String">
+                    <modifiers optional="false"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="supplierName" type="java.lang.String" generate="true">
+                    <persistence type="property" />
+                    <modifiers optional="false" />
+                </attribute>
+                <attribute qualifier="catalogVersion" type="CatalogVersion">
+                    <modifiers initial="true" optional="false" write="false"/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
         <itemtype code="Customer" autocreate="false" generate="false">
             <attributes>
                 <attribute qualifier="status" type="Status">

@@ -647,6 +647,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.subscriptionservices.dto.SubscriptionProductDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.subscriptionservices.dto.SubscriptionDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.subscriptionservices.dto.SubscriptionTermDTO</value>
+			<value type="java.lang.Class">com.epam.training.dto.SupplierDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.catalog.dto.SyncAttributeDescriptorConfigDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.catalog.dto.SyncItemCronJobDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.catalog.dto.SyncItemJobDTO</value>
@@ -1350,6 +1351,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.subscriptionservices.dto.SubscriptionProductsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.subscriptionservices.dto.SubscriptionTermsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.subscriptionservices.dto.SubscriptionsDTO</value>
+			<value type="java.lang.Class">com.epam.training.dto.SuppliersDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.catalog.dto.SyncAttributeDescriptorConfigsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.catalog.dto.SyncItemCronJobsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.catalog.dto.SyncItemJobsDTO</value>
@@ -2064,6 +2066,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="subscriptionProductsResource" class="de.hybris.platform.subscriptionservices.resource.SubscriptionProductsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="subscriptionTermsResource" class="de.hybris.platform.subscriptionservices.resource.SubscriptionTermsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="subscriptionsResource" class="de.hybris.platform.subscriptionservices.resource.SubscriptionsResource" scope="prototype" parent="abstractResource"/>
+	<bean id="suppliersResource" class="com.epam.training.resource.SuppliersResource" scope="prototype" parent="abstractResource"/>
 	<bean id="syncAttributeDescriptorConfigsResource" class="de.hybris.platform.catalog.resource.SyncAttributeDescriptorConfigsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="syncItemCronJobsResource" class="de.hybris.platform.catalog.resource.SyncItemCronJobsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="syncItemJobsResource" class="de.hybris.platform.catalog.resource.SyncItemJobsResource" scope="prototype" parent="abstractResource"/>
@@ -2764,6 +2767,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="subscriptionProductResource" class="de.hybris.platform.subscriptionservices.resource.SubscriptionProductResource" scope="prototype" parent="abstractResource"/>
 	<bean id="subscriptionResource" class="de.hybris.platform.subscriptionservices.resource.SubscriptionResource" scope="prototype" parent="abstractResource"/>
 	<bean id="subscriptionTermResource" class="de.hybris.platform.subscriptionservices.resource.SubscriptionTermResource" scope="prototype" parent="abstractResource"/>
+	<bean id="supplierResource" class="com.epam.training.resource.SupplierResource" scope="prototype" parent="abstractResource"/>
 	<bean id="syncAttributeDescriptorConfigResource" class="de.hybris.platform.catalog.resource.SyncAttributeDescriptorConfigResource" scope="prototype" parent="abstractResource"/>
 	<bean id="syncItemCronJobResource" class="de.hybris.platform.catalog.resource.SyncItemCronJobResource" scope="prototype" parent="abstractResource"/>
 	<bean id="syncItemJobResource" class="de.hybris.platform.catalog.resource.SyncItemJobResource" scope="prototype" parent="abstractResource"/>
