@@ -55,6 +55,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.acceleratorcms.dto.components.AccountNavigationCollectionComponentDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.acceleratorcms.dto.components.AccountNavigationComponentDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.acceleratorcms.dto.actions.AddToCartActionDTO</value>
+			<value type="java.lang.Class">com.epam.training.dto.AdditionalInfoDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.user.AddressDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.order.payment.AdvancePaymentInfoDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.advancedsavedquery.dto.AdvancedSavedQueryDTO</value>
@@ -759,6 +760,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 			<value type="java.lang.Class">de.hybris.platform.acceleratorcms.dto.components.AccountNavigationCollectionComponentsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.acceleratorcms.dto.components.AccountNavigationComponentsDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.acceleratorcms.dto.actions.AddToCartActionsDTO</value>
+			<value type="java.lang.Class">com.epam.training.dto.AdditionalInfosDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.user.AddressesDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.core.dto.order.payment.AdvancePaymentInfosDTO</value>
 			<value type="java.lang.Class">de.hybris.platform.advancedsavedquery.dto.AdvancedSavedQueriesDTO</value>
@@ -1474,6 +1476,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="accountNavigationCollectionComponentsResource" class="de.hybris.platform.acceleratorcms.resource.components.AccountNavigationCollectionComponentsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="accountNavigationComponentsResource" class="de.hybris.platform.acceleratorcms.resource.components.AccountNavigationComponentsResource" scope="prototype" parent="abstractResource"/>
 	<bean id="addToCartActionsResource" class="de.hybris.platform.acceleratorcms.resource.actions.AddToCartActionsResource" scope="prototype" parent="abstractResource"/>
+	<bean id="additionalInfosResource" class="com.epam.training.resource.AdditionalInfosResource" scope="prototype" parent="abstractResource"/>
 	<bean id="addressesResource" class="de.hybris.platform.core.resource.user.AddressesResource" scope="prototype" parent="abstractResource"/>
 	<bean id="advancePaymentInfosResource" class="de.hybris.platform.core.resource.order.payment.AdvancePaymentInfosResource" scope="prototype" parent="abstractResource"/>
 	<bean id="advancedSavedQueriesResource" class="de.hybris.platform.advancedsavedquery.resource.AdvancedSavedQueriesResource" scope="prototype" parent="abstractResource"/>
@@ -2175,6 +2178,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd
 	<bean id="accountNavigationCollectionComponentResource" class="de.hybris.platform.acceleratorcms.resource.components.AccountNavigationCollectionComponentResource" scope="prototype" parent="abstractResource"/>
 	<bean id="accountNavigationComponentResource" class="de.hybris.platform.acceleratorcms.resource.components.AccountNavigationComponentResource" scope="prototype" parent="abstractResource"/>
 	<bean id="addToCartActionResource" class="de.hybris.platform.acceleratorcms.resource.actions.AddToCartActionResource" scope="prototype" parent="abstractResource"/>
+	<bean id="additionalInfoResource" class="com.epam.training.resource.AdditionalInfoResource" scope="prototype" parent="abstractResource"/>
 	<bean id="addressResource" class="de.hybris.platform.core.resource.user.AddressResource" scope="prototype" parent="abstractResource"/>
 	<bean id="advancePaymentInfoResource" class="de.hybris.platform.core.resource.order.payment.AdvancePaymentInfoResource" scope="prototype" parent="abstractResource"/>
 	<bean id="advancedSavedQueryResource" class="de.hybris.platform.advancedsavedquery.resource.AdvancedSavedQueryResource" scope="prototype" parent="abstractResource"/>

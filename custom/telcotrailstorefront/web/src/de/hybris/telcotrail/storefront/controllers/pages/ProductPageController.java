@@ -136,7 +136,7 @@ public class ProductPageController extends AbstractPageController
 		populateProductDetailForDisplay(productModel, model, request);
 		model.addAttribute(new ReviewForm());
 		final ProductData productData = productFacade.getProductForOptions(productModel,
-				Arrays.asList(ProductOption.REVIEW, ProductOption.GALLERY));
+				Arrays.asList(ProductOption.REVIEW, ProductOption.GALLERY, ProductOption.ADDITIONALINFO));
 		final int totalReviews = productData.getReviews().size();
 		model.addAttribute("totalReviews", Integer.valueOf(totalReviews));
 		model.addAttribute("showingReviews", Integer.valueOf(productData.getReviews().size()));
@@ -183,7 +183,7 @@ public class ProductPageController extends AbstractPageController
 		final ProductModel productModel = productService.getProductForCode(productCode);
 		final ProductData productData = productFacade.getProductForOptions(productModel, Arrays.asList(ProductOption.BASIC,
 				ProductOption.PRICE, ProductOption.SUMMARY, ProductOption.DESCRIPTION, ProductOption.CATEGORIES,
-				ProductOption.PROMOTIONS, ProductOption.STOCK, ProductOption.REVIEW));
+				ProductOption.PROMOTIONS, ProductOption.STOCK, ProductOption.REVIEW, ProductOption.ADDITIONALINFO));
 		populateProductData(productData, model, request);
 		return ControllerConstants.Views.Fragments.Product.QuickViewPopup;
 	}
@@ -222,7 +222,7 @@ public class ProductPageController extends AbstractPageController
 		final ProductModel productModel = productService.getProductForCode(productCode);
 		final ProductData productData = productFacade.getProductForOptions(productModel, Arrays.asList(ProductOption.BASIC,
 				ProductOption.PRICE, ProductOption.SUMMARY, ProductOption.DESCRIPTION, ProductOption.GALLERY,
-				ProductOption.CATEGORIES, ProductOption.REVIEW, ProductOption.PROMOTIONS, ProductOption.CLASSIFICATION));
+				ProductOption.CATEGORIES, ProductOption.REVIEW, ProductOption.PROMOTIONS, ProductOption.CLASSIFICATION, ProductOption.ADDITIONALINFO));
 		populateProductData(productData, model, request);
 		model.addAttribute(new ReviewForm());
 		final List reviews = (List) productData.getReviews();
@@ -264,7 +264,7 @@ public class ProductPageController extends AbstractPageController
 		final List<ProductOption> options = new ArrayList<ProductOption>();
 		options.addAll(Arrays.asList(ProductOption.BASIC, ProductOption.PRICE, ProductOption.SUMMARY, ProductOption.DESCRIPTION,
 				ProductOption.GALLERY, ProductOption.CATEGORIES, ProductOption.REVIEW, ProductOption.PROMOTIONS,
-				ProductOption.CLASSIFICATION, ProductOption.VARIANT_FULL, ProductOption.STOCK));
+				ProductOption.CLASSIFICATION, ProductOption.VARIANT_FULL, ProductOption.STOCK, ProductOption.ADDITIONALINFO));
 
 		if (productModel instanceof DeviceModel)
 		{

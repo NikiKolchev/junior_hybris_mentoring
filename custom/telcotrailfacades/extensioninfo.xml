@@ -19,6 +19,7 @@
 		<requires-extension name="configurablebundlefacades"/>
 		<requires-extension name="acceleratorfacades"/>
 		<requires-extension name="telcotrailcore"/>
+        <!--<requires-extension name="training"/>-->
 
 		<coremodule generated="true" manager="de.hybris.platform.jalo.extension.GenericManager" packageroot="de.hybris.telcotrail.facades"/>
 

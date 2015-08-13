@@ -21,7 +21,9 @@
 
     <context:annotation-config />
 
-	
+
+	<!--<bean id="productAdditionalInfoConverter" class="de.hybris.telcotrail.facades.product.converters.populator.ProductAdditionalInfoConverter"/>-->
+
 	<!-- accelerator Image Format Mappings -->
 	<alias name="acceleratorImageFormatMapping" alias="imageFormatMapping"/>
 	<bean id="acceleratorImageFormatMapping" parent="defaultImageFormatMapping">
@@ -104,6 +106,10 @@
 	     <property name="commercePriceService" ref="subscriptionCommercePriceService"/>
 	     <property name="subscriptionProductPricePopulator" ref="subscriptionProductPricePlanPopulator"/>
          <property name="productStockPopulator" ref="productStockPopulator"/>
+
+
+         <!--<property name="additionalInfoPopulator" ref="additionalInfoPopulator"/>-->
+
 	</bean>
 	
 	<alias name="defaultDeviceBundleTabsPopulator" alias="deviceBundleTabsPopulator" />
@@ -122,6 +128,16 @@
 		 <property name="typeClassName" value="de.hybris.telcotrail.core.model.ServiceAddOnModel" />
 	</bean>
 
+
+	<bean id="baseProductPopulator" scope="prototype" abstract="true"
+		  class="de.hybris.platform.commercefacades.product.converters.populator.AbstractProductPopulator">
+		<property name="modelService" ref="modelService"/>
+	</bean>
+
+	<!--<bean id="additionalInfoPopulator" parent="baseProductPopulator" scope="prototype">-->
+	<!--</bean>-->
+
+
 	<alias name="defaultTelcoProductConfiguredPopulator" alias="productConfiguredPopulator" />
 	<bean id="defaultTelcoProductConfiguredPopulator"  parent="defaultBundleConfiguredPopulator">
 		<property name="populators">
@@ -129,6 +145,7 @@
 				<entry key="DEVICE_BUNDLE_TABS" value-ref="deviceBundleTabsPopulator" />
 				<entry key="SERVICE_PLAN_BUNDLE_TABS" value-ref="planBundleTabsPopulator" />
 				<entry key="SERVICE_ADDON_BUNDLE_TABS" value-ref="addOnBundleTabsPopulator" />
+				<!--<entry key="ADDITIONALINFO" value-ref="additionalInfoPopulator" />-->
 			</map>
 		</property>
 	</bean>

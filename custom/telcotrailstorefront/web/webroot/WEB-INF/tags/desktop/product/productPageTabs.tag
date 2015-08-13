@@ -18,6 +18,11 @@
 			</li>
 			<li>
 				<h2>
+					<a href="#tab-addinfo" class="tab_01" title="<spring:theme code="product.product.additionalInfos" />"><spring:theme code="product.product.addinfo" /></a>
+				</h2>
+			</li>
+			<li>
+				<h2>
 					<a href="#tab-reviews" class="tab_03" title="<spring:theme code="review.reviews" />"><spring:theme code="review.reviews" /></a>
 				</h2>
 			</li>
@@ -25,6 +30,9 @@
 	</ycommerce:testId>
 	<div class="prod_content" id="tab-details">
 		<product:productDetailsTab product="${product}"/>
+	</div>
+	<div class="prod_content" id="tab-addinfo">
+		<product:productAddInfo product="${product}"/>
 	</div>
 	<div class="prod_content" id="tab-reviews">
 		<h3><spring:theme code="review.reviews" /></h3>

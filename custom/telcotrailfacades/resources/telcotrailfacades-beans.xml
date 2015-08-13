@@ -17,6 +17,7 @@
 		<value>DEVICE_BUNDLE_TABS</value>
 		<value>SERVICE_PLAN_BUNDLE_TABS</value>
 		<value>SERVICE_ADDON_BUNDLE_TABS</value>
+		<value>ADDITIONALINFO</value>
 	</enum>
 
 	<bean class="de.hybris.telcotrail.facades.data.DashboardBoxData">
@@ -81,19 +82,30 @@
 		<property name="preselected" type="boolean"/>
 	</bean>
 
+
+
+
+	<bean class="de.hybris.telcotrail.facades.data.AdditionalInfoData">
+		<property name="id" type="java.lang.String"/>
+		<property name="description" type="java.lang.String"/>
+	</bean>
+
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
 		<property name="bundleTabs" type="java.util.List&lt;de.hybris.telcotrail.facades.data.BundleTabData>"/>
 		<property name="thisBundleProductPrice" type="de.hybris.platform.commercefacades.product.data.PriceData"/>
 		<property name="otherBundleProductPrice" type="de.hybris.platform.commercefacades.product.data.PriceData"/>
 		<property name="preselected" type="boolean"/>
 		<property name="disabledMessage" type="String"/>
+		<property name="additionalInfos" type="java.util.Collection&lt;de.hybris.telcotrail.facades.data.AdditionalInfoData>"/>
 	</bean>
-	
+
 	<bean class="de.hybris.platform.configurablebundlefacades.data.BundleTemplateData">
 		<property name="bundleBoxes" type="java.util.List&lt;de.hybris.telcotrail.facades.data.BundleBoxData>"/>
 	</bean>
 
-    <bean class="de.hybris.platform.commercefacades.product.data.StockData">
+	<bean class="de.hybris.platform.commercefacades.product.data.StockData">
         <property name="inStockStatus" type="de.hybris.platform.basecommerce.enums.InStockStatus"/>
     </bean>
+
+
 </beans>

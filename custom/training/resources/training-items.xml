@@ -8,6 +8,7 @@
             <value code="ACTIVE"/>
             <value code="BLOCKED"/>
         </enumtype>
+
     </enumtypes>
 
     <relations>
@@ -19,9 +20,47 @@
             <targetElement qualifier="organizations" type="Organization"
                            cardinality="many"/>
         </relation>
+
+        <relation code="Product2AdditionalInfo" localized="false"
+                  autocreate="true" generate="true">
+            <!--<deployment table="customer2organisationrel" typecode="15002"/>-->
+            <sourceElement qualifier="product" type="Product"
+                           cardinality="one"/>
+            <targetElement qualifier="additionalInfos" type="AdditionalInfo"
+                           cardinality="many"/>
+        </relation>
     </relations>
 
     <itemtypes>
+        <itemtype code="AdditionalInfo" autocreate="true" generate="true">
+            <deployment table="additionalInfo" typecode="15051" />
+            <attributes>
+                <attribute qualifier="id" type="java.lang.String">
+                    <modifiers optional="false"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="description" type="java.lang.String" generate="true">
+                    <persistence type="property" />
+                    <modifiers optional="false" />
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="Product" autocreate="false" generate="false">
+            <attributes>
+                <attribute qualifier="additionalInfo" type="AdditionalInfo">
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <!--<itemtype code="de.hybris.platform.commercefacades.product.data.ProductData" autocreate="false" generate="false">-->
+            <!--<attributes>-->
+                <!--<attribute qualifier="additionalInfo" type="AdditionalInfo">-->
+                    <!--<persistence type="property"/>-->
+                <!--</attribute>-->
+            <!--</attributes>-->
+        <!--</itemtype>-->
 
         <itemtype code="Supplier" autocreate="true" generate="true">
             <deployment table="supplier" typecode="15050" />
@@ -53,6 +92,19 @@
         </itemtype>
 
         <itemtype code="Customer" autocreate="false" generate="false">
+
+            <custom-properties>
+                <property name="catalogItemType">
+                    <value>java.lang.Boolean.TRUE</value>
+                </property>
+                <property name="catalogVersionAttributeQualifier">
+                    <value>"catalogVersion"</value>
+                </property>
+                <property name="uniqueKeyAttributeQualifier">
+                    <value>"uid"</value>
+                </property>
+            </custom-properties>
+
             <attributes>
                 <attribute qualifier="status" type="Status">
                     <description>Status of user describes user is active or blocked.</description>
@@ -68,11 +120,30 @@
                     <modifiers optional="false"/>
                     <defaultvalue>0</defaultvalue>
                 </attribute>
+
+                <attribute qualifier="catalogVersion" type="CatalogVersion">
+                    <modifiers initial="true" optional="false" write="false"/>
+                    <persistence type="property"/>
+                </attribute>
+
             </attributes>
         </itemtype>
 
         <itemtype code="Organization" autocreate="true" generate="true">
             <deployment table="Organizations" typecode="10123"/>
+
+            <custom-properties>
+                <property name="catalogItemType">
+                    <value>java.lang.Boolean.TRUE</value>
+                </property>
+                <property name="catalogVersionAttributeQualifier">
+                    <value>"catalogVersion"</value>
+                </property>
+                <property name="uniqueKeyAttributeQualifier">
+                    <value>"id"</value>
+                </property>
+            </custom-properties>
+
             <attributes>
                 <attribute qualifier="id" type="java.lang.Integer">
                     <description>Id(not a PK)</description>
@@ -116,6 +187,12 @@
                     <modifiers read="true" write="false" search="true"
                                optional="true" unique="false"/>
                 </attribute>
+
+                <attribute qualifier="catalogVersion" type="CatalogVersion">
+                    <modifiers initial="true" optional="false" write="false"/>
+                    <persistence type="property"/>
+                </attribute>
+
             </attributes>
         </itemtype>
     </itemtypes>
