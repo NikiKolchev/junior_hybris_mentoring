@@ -10,8 +10,7 @@ import de.hybris.platform.servicelayer.dto.converter.Converter;
 import de.hybris.telcotrail.facades.data.AdditionalInfoData;
 import org.springframework.beans.factory.annotation.Required;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Collections;
 
 public class AdditionalInfoPopulator<SOURCE extends ProductModel, TARGET extends ProductData> implements Populator<ProductModel, ProductData> {
     private Converter<AdditionalInfoModel, AdditionalInfoData> additionalInfoConverter;
@@ -26,25 +25,9 @@ public class AdditionalInfoPopulator<SOURCE extends ProductModel, TARGET extends
         this.additionalInfoConverter = additionalInfoConverter;
     }
 
-//    @Override
-//    public void populate(final SOURCE productModel, final TARGET productData) throws ConversionException {
-//        AdditionalInfoModel additionalInfoModel = new AdditionalInfoModel();
-//        additionalInfoModel.setDescription("Description From AdditionalInfoPopulator");
-//        Collection<AdditionalInfoModel> additionalInfoModels = productModel.getAdditionalInfos();
-//        additionalInfoModels.add(additionalInfoModel);
-//        productModel.setAdditionalInfos(additionalInfoModels);
-//
-//        productData.setAdditionalInfos(Converters.convertAll(productModel.getAdditionalInfos(), getAdditionalInfoConverter()));
-//    }
-
     @Override
     public void populate(ProductModel productModel, ProductData productData) throws ConversionException {
-        AdditionalInfoModel additionalInfoModel = new AdditionalInfoModel();
-        additionalInfoModel.setDescription("Description From AdditionalInfoPopulator");
-
-        Collection<AdditionalInfoModel> additionalInfoModels = new ArrayList<>();
-        additionalInfoModels.add(additionalInfoModel);
-        productModel.setAdditionalInfos(additionalInfoModels);
+        productModel.setAdditionalInfos(Collections.singletonList(new AdditionalInfoModel()));
 
         productData.setAdditionalInfos(Converters.convertAll(productModel.getAdditionalInfos(), getAdditionalInfoConverter()));
     }

@@ -18,7 +18,7 @@
 			</li>
 			<li>
 				<h2>
-					<a href="#tab-addinfo" class="tab_01" title="<spring:theme code="product.product.additionalInfos" />"><spring:theme code="product.product.addinfo" /></a>
+					<a href="#tab-addinfo" class="tab_01" title="<spring:theme code="product.product.addinfo" />"><spring:theme code="product.product.addinfo" /></a>
 				</h2>
 			</li>
 			<li>

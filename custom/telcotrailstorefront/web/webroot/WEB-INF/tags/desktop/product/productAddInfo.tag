@@ -10,7 +10,7 @@
 
 <h4>${product.name}</h4>
 <ycommerce:testId code="productAdditionalInfo_content_label">
-tra-ta-ta
+
 <c:forEach items="${product.additionalInfos}" var="additionalInfo">
    <c:out value="${additionalInfo.description}"/><p>
 </c:forEach>

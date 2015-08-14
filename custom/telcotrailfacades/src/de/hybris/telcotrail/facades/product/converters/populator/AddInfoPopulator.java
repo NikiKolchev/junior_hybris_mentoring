@@ -1,11 +1,9 @@
 package de.hybris.telcotrail.facades.product.converters.populator;
 
 import com.epam.training.model.AdditionalInfoModel;
-import de.hybris.platform.commercefacades.product.data.ReviewData;
 import de.hybris.platform.commercefacades.user.data.PrincipalData;
 import de.hybris.platform.converters.Populator;
 import de.hybris.platform.core.model.security.PrincipalModel;
-import de.hybris.platform.customerreview.model.CustomerReviewModel;
 import de.hybris.platform.servicelayer.dto.converter.ConversionException;
 import de.hybris.platform.servicelayer.dto.converter.Converter;
 import de.hybris.telcotrail.facades.data.AdditionalInfoData;
